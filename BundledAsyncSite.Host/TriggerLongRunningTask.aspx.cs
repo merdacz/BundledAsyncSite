@@ -1,12 +1,13 @@
 ﻿namespace BundledAsyncSite.Host
 {
     using System;
+    using BundledAsyncSite.Host.Common;
     using BundledAsyncSite.Host.EventHandlingServiceProxy;
 
     /// <summary>
     /// Long running task.
     /// </summary>
-    public partial class TriggerLongRunningTask : System.Web.UI.Page
+    public partial class TriggerLongRunningTask : BasePage
     {
         protected void OnExecuteClicked(object sender, EventArgs e)
         {
@@ -20,11 +21,7 @@
                                  MillisecondsToRun = int.Parse(this.ExecutionTime.Text)
                              };
 
-            using (var proxy = new EventHandlingServiceClient())
-            {
-                proxy.Handle(@event);
-            }
-
+            this.EventHandlingService.Handle(@event);
             Response.Redirect("Default.aspx");
         }
     }

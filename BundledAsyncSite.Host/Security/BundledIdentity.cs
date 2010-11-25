@@ -1,14 +1,21 @@
 ﻿namespace BundledAsyncSite.Host.Security
 {
-    using System;
+    using System.Runtime.Serialization;
     using System.Security.Principal;
 
+    /// <summary>
+    /// Custom identity to be used together with <see cref="BundledPrincipal"/>. 
+    /// </summary>
+    [DataContract]
     public class BundledIdentity : IIdentity
     {
-        public string Name
+        public BundledIdentity(string name)
         {
-            get { throw new NotImplementedException(); }
+            this.Name = name;
         }
+
+        [DataMember]
+        public string Name { get; private set; }
 
         public string AuthenticationType
         {
@@ -17,7 +24,7 @@
 
         public bool IsAuthenticated
         {
-            get { throw new NotImplementedException(); }
+            get { return !string.IsNullOrEmpty(this.Name); }
         }
     }
 }

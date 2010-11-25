@@ -1,8 +1,12 @@
 ﻿namespace BundledAsyncSite.Host.Bus.EventHandlers
 {
     using System.Net.Mail;
+    using System.Security.Permissions;
     using BundledAsyncSite.Host.Events;
 
+    /// <summary>
+    /// Sends email on account created.
+    /// </summary>
     public class SendEmailOnAccountCreated : EventHandlerBase<AccountCreated>
     {
         public override void Handle(AccountCreated @event)

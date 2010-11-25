@@ -1,12 +1,13 @@
 ﻿namespace BundledAsyncSite.Host
 {
     using System;
+    using BundledAsyncSite.Host.Common;
     using BundledAsyncSite.Host.EventHandlingServiceProxy;
 
     /// <summary>
     /// Account registration.
     /// </summary>
-    public partial class CreateAccount : System.Web.UI.Page
+    public partial class CreateAccount : BasePage
     {
         protected void OnRegisterClicked(object sender, EventArgs e)
         {
@@ -20,12 +21,8 @@
                                  Email = this.Email.Text, 
                                  UserName = this.UserName.Text
                              };
-
-            using (var proxy = new EventHandlingServiceClient())
-            {
-                proxy.Handle(@event);    
-            }
-
+            
+            this.EventHandlingService.Handle(@event);
             Response.Redirect("Default.aspx");
         }
     }

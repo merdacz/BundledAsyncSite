@@ -104,6 +104,8 @@
     </Compile>
     <Compile Include="Helpers\Assume.cs" />
     <Compile Include="Bus\EventHandlerResolver.cs" />
+    <Compile Include="Security\BundledIdentity.cs" />
+    <Compile Include="Security\BundledPrincipal.cs" />
     <Compile Include="Service References\EventHandlingServiceProxy\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

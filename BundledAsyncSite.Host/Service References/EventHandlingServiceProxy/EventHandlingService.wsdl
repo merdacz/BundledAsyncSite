@@ -35,9 +35,9 @@
   </wsdl:binding>
   <wsdl:service name="EventHandlingService">
     <wsdl:port name="NetMsmqBinding_EventHandlingService" binding="tns:NetMsmqBinding_EventHandlingService">
-      <soap12:address location="net.msmq://localhost/private/EventHandlingService" />
+      <soap12:address location="net.msmq://localhost/private/BundledAsyncSite.Host/EventHandlingService.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.msmq://localhost/private/EventHandlingService</wsa10:Address>
+        <wsa10:Address>net.msmq://localhost/private/BundledAsyncSite.Host/EventHandlingService.svc</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

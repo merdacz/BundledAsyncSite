@@ -1,6 +1,7 @@
 ﻿namespace BundledAsyncSite.Host
 {
     using System;
+    using System.Transactions;
     using BundledAsyncSite.Host.EventHandlingServiceProxy;
 
     /// <summary>
@@ -21,9 +22,14 @@
                                  UserName = this.UserName.Text
                              };
 
-            using (var proxy = new EventHandlingServiceClient())
+            using (var transaction = new TransactionScope())
             {
-                proxy.Handle(@event);    
+                using (var proxy = new EventHandlingServiceClient())
+                {
+                    proxy.Handle(@event);
+                }
+
+                transaction.Complete();
             }
 
             Response.Redirect("Default.aspx");

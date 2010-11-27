@@ -4,6 +4,16 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="EventBase" nillable="true" type="tns:EventBase" />
+  <xs:complexType name="PerformLongRunningTask">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EventBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MillisecondsToRun" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PerformLongRunningTask" nillable="true" type="tns:PerformLongRunningTask" />
   <xs:complexType name="AccountCreated">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:EventBase">
@@ -15,14 +25,4 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="AccountCreated" nillable="true" type="tns:AccountCreated" />
-  <xs:complexType name="PerformLongRunningTask">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:EventBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="MillisecondsToRun" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="PerformLongRunningTask" nillable="true" type="tns:PerformLongRunningTask" />
 </xs:schema>

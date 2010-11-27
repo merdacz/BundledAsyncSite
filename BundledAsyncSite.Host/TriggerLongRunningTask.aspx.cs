@@ -1,6 +1,7 @@
 ﻿namespace BundledAsyncSite.Host
 {
     using System;
+    using System.Transactions;
     using BundledAsyncSite.Host.EventHandlingServiceProxy;
 
     /// <summary>
@@ -20,9 +21,14 @@
                                  MillisecondsToRun = int.Parse(this.ExecutionTime.Text)
                              };
 
-            using (var proxy = new EventHandlingServiceClient())
+            using (var transaction = new TransactionScope(TransactionScopeOption.RequiresNew))
             {
-                proxy.Handle(@event);
+                using (var proxy = new EventHandlingServiceClient())
+                {
+                    proxy.Handle(@event);
+                }
+                
+                transaction.Complete();
             }
 
             Response.Redirect("Default.aspx");

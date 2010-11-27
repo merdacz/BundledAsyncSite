@@ -17,8 +17,8 @@ namespace BundledAsyncSite.Host.EventHandlingServiceProxy {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EventBase", Namespace="http://schemas.datacontract.org/2004/07/BundledAsyncSite.Host.Events")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(BundledAsyncSite.Host.EventHandlingServiceProxy.AccountCreated))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(BundledAsyncSite.Host.EventHandlingServiceProxy.PerformLongRunningTask))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(BundledAsyncSite.Host.EventHandlingServiceProxy.AccountCreated))]
     public partial class EventBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -40,6 +40,29 @@ namespace BundledAsyncSite.Host.EventHandlingServiceProxy {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PerformLongRunningTask", Namespace="http://schemas.datacontract.org/2004/07/BundledAsyncSite.Host.Events")]
+    [System.SerializableAttribute()]
+    public partial class PerformLongRunningTask : BundledAsyncSite.Host.EventHandlingServiceProxy.EventBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MillisecondsToRunField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MillisecondsToRun {
+            get {
+                return this.MillisecondsToRunField;
+            }
+            set {
+                if ((this.MillisecondsToRunField.Equals(value) != true)) {
+                    this.MillisecondsToRunField = value;
+                    this.RaisePropertyChanged("MillisecondsToRun");
+                }
             }
         }
     }
@@ -78,29 +101,6 @@ namespace BundledAsyncSite.Host.EventHandlingServiceProxy {
                 if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
                     this.UserNameField = value;
                     this.RaisePropertyChanged("UserName");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PerformLongRunningTask", Namespace="http://schemas.datacontract.org/2004/07/BundledAsyncSite.Host.Events")]
-    [System.SerializableAttribute()]
-    public partial class PerformLongRunningTask : BundledAsyncSite.Host.EventHandlingServiceProxy.EventBase {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MillisecondsToRunField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MillisecondsToRun {
-            get {
-                return this.MillisecondsToRunField;
-            }
-            set {
-                if ((this.MillisecondsToRunField.Equals(value) != true)) {
-                    this.MillisecondsToRunField = value;
-                    this.RaisePropertyChanged("MillisecondsToRun");
                 }
             }
         }

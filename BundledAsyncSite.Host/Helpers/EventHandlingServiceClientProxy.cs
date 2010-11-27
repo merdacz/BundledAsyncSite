@@ -2,6 +2,7 @@
 {
     using System;
     using System.ServiceModel;
+    using System.Transactions;
     using System.Web;
     using BundledAsyncSite.Host.EventHandlingServiceProxy;
     using BundledAsyncSite.Host.Security;
@@ -36,7 +37,11 @@
                 var header = new MessageHeader<BundledPrincipal>(principal);
                 var untypedHeader = header.GetUntypedHeader(SecurityToken.Key, SecurityToken.Namespace);
                 OperationContext.Current.OutgoingMessageHeaders.Add(untypedHeader);
-                this.client.Handle(@event);
+                using (var transaction = new TransactionScope())
+                {
+                    this.client.Handle(@event);
+                    transaction.Complete();
+                }
             }
         }
 

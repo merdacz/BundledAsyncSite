@@ -21,7 +21,7 @@
                                  Email = this.Email.Text, 
                                  UserName = this.UserName.Text
                              };
-            
+
             this.EventHandlingService.Handle(@event);
             Response.Redirect("Default.aspx");
         }

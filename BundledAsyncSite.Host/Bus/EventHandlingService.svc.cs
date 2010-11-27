@@ -1,6 +1,5 @@
 ﻿namespace BundledAsyncSite.Host.Bus
 {
-    using System;
     using System.Security;
     using System.ServiceModel;
     using System.Threading;
@@ -12,6 +11,7 @@
         private static EventHandlerResolver resolver = EventHandlerResolver.Instance;
 
         [OperationContract(IsOneWay = true)]
+        [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
         public void Handle(EventBase @event)
         {
             var handlers = resolver.Resolve(@event.GetType());

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="askZ3SeNu0PwMFTlZHlkjyyqop8=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="FQ5u2wj9o1NNA2OMCxuXXaYDAh8=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netMsmqBinding" name="NetMsmqBinding_EventHandlingService">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetMsmqBinding_EventHandlingService" contract="EventHandlingServiceProxy.EventHandlingService" bindingType="netMsmqBinding" address="net.msmq://localhost/private/EventHandlingService" bindingConfiguration="NetMsmqBinding_EventHandlingService">
+    <endpoint name="NetMsmqBinding_EventHandlingService" contract="EventHandlingServiceProxy.EventHandlingService" bindingType="netMsmqBinding" address="net.msmq://localhost/private/BundledAsyncSite.Host/EventHandlingService.svc" bindingConfiguration="NetMsmqBinding_EventHandlingService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.msmq://localhost/private/EventHandlingService</serializedValue>
+          <serializedValue>net.msmq://localhost/private/BundledAsyncSite.Host/EventHandlingService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

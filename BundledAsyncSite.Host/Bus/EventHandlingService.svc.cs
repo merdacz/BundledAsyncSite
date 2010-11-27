@@ -5,6 +5,7 @@
     using BundledAsyncSite.Host.Events;
 
     [ServiceContract]
+    [ServiceBehavior(TransactionAutoCompleteOnSessionClose = false, TransactionIsolationLevel = IsolationLevel.Unspecified)]
     public class EventHandlingService
     {
         private static EventHandlerResolver resolver = EventHandlerResolver.Instance;
